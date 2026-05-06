@@ -1,0 +1,73 @@
+{
+  "repo": "matrix-sec-secret-core",
+  "language": "PHP",
+  "category": "Security tooling",
+  "goal": "Implement a PHP security tooling project for secret simulation kernel, using seeded input scenarios and deterministic summary checks.",
+  "review_model": {
+    "terms": [
+      "trust boundary",
+      "claim drift",
+      "replay exposure",
+      "policy width"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "trust boundary",
+      "signal": 46,
+      "slack": 36,
+      "drag": 27,
+      "confidence": 78,
+      "score": 125,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "claim drift",
+      "signal": 74,
+      "slack": 31,
+      "drag": 25,
+      "confidence": 78,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replay exposure",
+      "signal": 75,
+      "slack": 40,
+      "drag": 28,
+      "confidence": 65,
+      "score": 171,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "policy width",
+      "signal": 62,
+      "slack": 45,
+      "drag": 13,
+      "confidence": 87,
+      "score": 217,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "trust boundary",
+      "signal": 58,
+      "slack": 52,
+      "drag": 19,
+      "confidence": 55,
+      "score": 166,
+      "lane": "ship"
+    }
+  ]
+}
